@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coca-Cola: The Future of Refreshment</title>
+    <script>
+      // Shim global and process as some libraries expect them
+      window.global = window;
+      window.process = window.process || { env: { NODE_ENV: 'development' } };
+      
+      // Safeguard against libraries trying to overwrite window.fetch
+      (function() {
+        try {
+          const originalFetch = window.fetch;
+          const desc = Object.getOwnPropertyDescriptor(window, 'fetch');
+          if (desc && (desc.configurable || desc.set === undefined)) {
+            Object.defineProperty(window, 'fetch', {
+              get: () => originalFetch,
+              set: (v) => { 
+                console.warn('Prevented attempt to overwrite window.fetch'); 
+              },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

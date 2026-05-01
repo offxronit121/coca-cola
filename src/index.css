@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;700&display=swap');
+
+@theme {
+  --color-coke-red: #F40009;
+  --color-coke-dark: #050505;
+  --color-coke-blood: #5e0202;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  background: #050505;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+canvas {
+  touch-action: none;
+}
+
+.atmosphere {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 40%, var(--color-coke-blood) 0%, transparent 70%),
+    radial-gradient(circle at 20% 80%, var(--color-coke-red) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, #2a0101 0%, transparent 50%);
+  filter: blur(80px);
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+}
+
+.kinetic-text {
+  font-size: clamp(80px, 15vw, 160px);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  text-transform: uppercase;
+  letter-spacing: -5px;
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(244, 0, 9, 0.5);
+}
+
+.nav-link {
+  @apply text-[10px] uppercase font-bold tracking-[0.2em] text-white/40 hover:text-white transition-colors cursor-pointer;
+}
