@@ -72,7 +72,7 @@ npm run dev
 
 ## 🌐 Live Demo
 
-👉 https://your-live-link.vercel.app
+👉 coca-cola-rosy.vercel.app
 
 ---
 
